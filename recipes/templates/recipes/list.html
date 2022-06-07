@@ -53,6 +53,7 @@
         <h2 class="recipe-card-title">
           <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
         </h2>
+        <img src= "{{ recipe.image }}" height="250">
         <p class="recipe-card-date">{{ recipe.updated }}</p>
       </div>
     {% endfor %}

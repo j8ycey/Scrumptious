@@ -37,7 +37,7 @@
       <a href="{% url 'recipe_delete' recipe.id %}">Delete</a>
     </div>
     {% if recipe.image %}
-      <img src="{{ recipe.image }}" class="pull-right">
+      <img src="{{ recipe.image }}" class="pull-right" height="400">
     {% endif %}
     <h1>{{ recipe.name }}</h1>
     <p>
