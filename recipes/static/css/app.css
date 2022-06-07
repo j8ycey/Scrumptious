@@ -19,7 +19,7 @@ a:visited {
 }
 
 button.button {
-  background-color: #E012AD;
+  background-color: skyblue;
   border: 2px solid transparent;
   border-radius: 4px;
   color: white;
@@ -29,8 +29,8 @@ button.button {
 
 button.button:hover {
   background-color: white;
-  border-color: #E012AD;
-  color: #E012AD;
+  border-color: skyblue;
+  color: skyblue;
 }
 
 button.button:active {
@@ -38,7 +38,7 @@ button.button:active {
 }
 
 input, textarea {
-  border: 1px solid #E012AD;
+  border: 1px solid skyblue;
   border-radius: 4px;
   padding: 1em 1.5em;
 }
