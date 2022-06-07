@@ -5,15 +5,16 @@ from django.views.generic.list import ListView
 
 # try:
 from tags.models import Tag
+
 # except Exception:
-    # Tag = None
+# Tag = None
 
 
 # Create your views here.
 class TagListView(ListView):
     model = Tag
     template_name = "tags/list.html"
-    paginate_by = 2
+    paginate_by = 4
 
 
 class TagDetailView(DetailView):
