@@ -1,27 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'paginate.html' %}
 
 {% block pagination %}
-    <div class="pagination">
-      <span class="step-links">
-        {% if page_obj.has_previous %}
-          <a href="?page=1">&laquo; first</a>
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-      </span>
-    </div>
-  {% endblock pagination %}
+{% endblock pagination %}
   
 
-  {% block content %}
+{% block content %}
   <main class="recipe-grid">
     {% for tag in tag_list %}
       <div class="recipe-card">
@@ -31,6 +14,7 @@
         {% for recipe in tag.recipes.all %}
           <p>
             <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
+            <img src= "{{ recipe.image }}" height="250">
           </p>
         {% endfor %}
       </div>
