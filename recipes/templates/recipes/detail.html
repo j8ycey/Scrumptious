@@ -8,6 +8,7 @@
   <img src="{{ recipe.image }}" class="pull-right" height="400" />
   {% endif %}
   <h1>{{ recipe.name }}</h1>
+  <h2>by: {{ recipe.author | default_if_none:"Unknown" }}</h2>
   <p>Created on {{ recipe.created }} | Updated on {{ recipe.updated }}</p>
   <form method="post" action="{% url 'recipe_rating' recipe.id %}">
     {% csrf_token %}

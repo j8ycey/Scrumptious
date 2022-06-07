@@ -31,6 +31,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", ".herokuapp.com", "127.0.0.1"]
 
+LOGIN_URL = "login"
+LOGOUT_URL = "logout"
+LOGIN_REDIRECT_URL = "recipes_list"
+LOGOUT_REDIRECT_URL = "recipes_list"
+
 
 # Application definition
 
