@@ -19,3 +19,6 @@ class MealPlan(models.Model):
 
     def __str__(self):
         return "Meal Plan: " + self.name
+
+
+# str(MealPlan.owner.)

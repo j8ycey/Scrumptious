@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+  <main>
+    <div>
+      <a href="{% url 'tag_edit' tag.id %}">Edit</a>
+      <a href="{% url 'tag_delete' tag.id %}">Delete</a>
+    </div>
+    <h2>Recipes for {{ meal_plan.name }} by {{ meal_plan.owner | default_if_none:"Unknown" }}</h2>
+    {% for recipe in tag.recipes.all %}
+      <p>
+        <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
+      </p>
+    {% endfor %}
+  </main>
+{% endblock content %}
