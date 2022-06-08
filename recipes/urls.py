@@ -9,6 +9,7 @@ from recipes.views import (
     log_rating,
     RecipeDetailView,
     RecipeListView,
+    USER_MODEL,
 )
 
 urlpatterns = [
@@ -19,6 +20,8 @@ urlpatterns = [
     path("<int:pk>/edit/", RecipeUpdateView.as_view(), name="recipe_edit"),
     path("<int:recipe_id>/ratings/", log_rating, name="recipe_rating"),
 
-    path("accounts/login",auth_views.LoginView.as_view(), name="login"),
-    path("accounts/logout",auth_views.LogoutView.as_view(), name="logout"),
+    path("accounts/login", auth_views.LoginView.as_view(), name="login"),
+    path("accounts/logout", auth_views.LogoutView.as_view(), name="logout"),
+
+    # path("users_recipes", USER_MODEL.as_view(), name="users_recipes")
 ]

@@ -83,3 +83,10 @@ class Rating(models.Model):
         related_name="ratings",
         on_delete=models.CASCADE,
     )
+
+# class Users_Recipes(models.Model):
+#     recipe =  models.ForeignKey(
+#         "Recipe",
+#         related_name="recipes",
+#         on_delete=models.CASCADE,
+#     )
