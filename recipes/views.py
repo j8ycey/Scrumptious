@@ -28,6 +28,13 @@ class RecipeListView(ListView):
     template_name = "recipes/list.html"
     paginate_by = 8
 
+    def get_queryset(self):
+        querystring = self.request.GET.get("q")
+        if querystring is None:
+            querystring = ""
+        return Recipe.objects.filter(description__icontains=querystring)
+
+
 
 class RecipeDetailView(DetailView):
     model = Recipe

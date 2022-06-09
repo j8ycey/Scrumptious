@@ -2,6 +2,16 @@
 
 {% block content %}
   <main class="recipe-grid">
+
+    <p>
+      <form method="GET">
+        <input type="text" name="q">
+        <button type="submit">Search</button>
+      </form>
+    </p>
+    <br>
+
+
     {% for recipe in recipe_list %}
       <div class="recipe-card">
         <h2 class="recipe-card-title">
