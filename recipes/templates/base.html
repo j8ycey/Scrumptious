@@ -27,11 +27,11 @@
             <a href="{% url 'meal_plan_list' %}">Meal Plans</a>
             {% endif %}
           </li>
-          {% comment %} <li>
+          <li>
             {% if user.is_authenticated %}
             <a href="{% url 'shopping_list' %}">Shopping List</a>
             {% endif %}
-          </li> {% endcomment %}
+          </li>
           <li>
             {% if user.is_staff %}
             <a href="{% url 'admin:index' %}">Admin</a>

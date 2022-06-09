@@ -1,0 +1,15 @@
+{% extends 'paginate.html' %}
+
+{% block content %}
+
+<main class="recipe-grid">
+  {% for item in shopping_list %}
+    <div class="recipe-card">
+      <h2 class="recipe-card-title">
+      </h2>
+      <a href="{% url 'shopping_list' %}">{{ item.food_item }}</a> <br>
+    </div>
+  {% endfor %}
+</main>
+
+{% endblock content %}

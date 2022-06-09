@@ -9,6 +9,7 @@ from recipes.views import (
     RecipeListView,
     USER_MODEL,
     log_rating,
+    ShoppingItemsList,
 )
 
 urlpatterns = [
@@ -23,5 +24,7 @@ urlpatterns = [
     path("accounts/login", auth_views.LoginView.as_view(), name="login"),
     path("accounts/logout", auth_views.LogoutView.as_view(), name="logout"),
 
-    # path("users_recipes", USER_MODEL.as_view(), name="users_recipes")
+    # path("shopping_items/create", .as_view(), name="shopping_list_create"),
+    path("shopping_items", ShoppingItemsList.as_view(), name="shopping_list"),
+    # path("shopping_items/delete", .as_view(), name="shopping_list_delete"),
 ]

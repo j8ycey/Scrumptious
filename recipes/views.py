@@ -6,7 +6,7 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from recipes.forms import RatingForm
-from recipes.models import USER_MODEL, Recipe
+from recipes.models import USER_MODEL, Recipe, ShoppingItem
 
 
 def log_rating(request, recipe_id):
@@ -62,6 +62,19 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("recipes_list")
 
 
-# class UsersRecipesView(DetailView):
-#     model = USER_MODEL
-#     template_name = "users/detail.html" 
+class ShoppingItemsList(LoginRequiredMixin, ListView):
+    model = ShoppingItem
+    template_name = "cart/list.html"
+    context_object_name = "shopping_list"
+    login_url = "/login/"
+
+
+def ShoppingListCreate():
+    pass
+    # if request.method == "POST":
+    #     if form.is_valid()
+    #         recipe
+
+
+def ShoppingListDelete():
+    pass
