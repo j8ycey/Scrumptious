@@ -35,7 +35,6 @@ class RecipeListView(ListView):
         return Recipe.objects.filter(description__icontains=querystring)
 
 
-
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = "recipes/detail.html"
@@ -69,6 +68,8 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "recipes/delete.html"
     success_url = reverse_lazy("recipes_list")
 
+# __________________________________________________________
+
 
 class ShoppingItemsList(LoginRequiredMixin, ListView):
     model = ShoppingItem
@@ -97,4 +98,3 @@ def create_shopping_item(request, pk, recipe_id):
 def shopping_list_delete(request):
     ShoppingItem.objects.filter(user=request.user).delete()
     return redirect("shopping_list")
-
