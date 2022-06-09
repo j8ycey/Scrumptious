@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
+{% load markdownify %}
 {% block content %}
-  <main>
+  <main class="recipe-detail">
     <div>
-      <a href="{% url 'tag_edit' tag.id %}">Edit</a>
-      <a href="{% url 'tag_delete' tag.id %}">Delete</a>
+      <a href="{% url 'meal_plan_edit' meal_plan.pk %}">Edit</a>
+      <a href="{% url 'meal_plan_delete' meal_plan.pk %}">Delete</a>
     </div>
-    <h2>Recipes for {{ meal_plan.name }} by {{ meal_plan.owner | default_if_none:"Unknown" }}</h2>
-    {% for recipe in tag.recipes.all %}
-      <p>
-        <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
-      </p>
-    {% endfor %}
+    <h2>Recipes for {{ meal_plan.owner | default_if_none:"Unknown" }}</h2>
+      {% for recipe in meal_plan.recipes.all %}
+          <p><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</p></a>
+      {% endfor %}
   </main>
 {% endblock content %}

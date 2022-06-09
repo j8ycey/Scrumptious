@@ -2,10 +2,10 @@
 {% block content %}
   <h2><a href="{% url 'meal_plan_new' %}"> Create A New Meal Plan </a></h2>
   <main class="recipe-grid">
-    {% for plan in meal_plans %}
+    {% for plan in meal_plan %}
     <div class="recipe-card">
       <h2 class="recipe-card-title">
-        <a href="{% url 'meal_plan_detail' plan.pk %}"> {{ plan.name }}</a>
+        <a href="{% url 'meal_plan_detail' plan.id %}"> {{ plan.name }}</a>
         </h2>
           {% for recipe in plan.recipes.all %}
             <p> {{ recipe.name }} </p>
