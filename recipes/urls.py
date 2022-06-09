@@ -10,6 +10,7 @@ from recipes.views import (
     USER_MODEL,
     log_rating,
     ShoppingItemsList,
+    create_shopping_item,
 )
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     # path("shopping_items/create", .as_view(), name="shopping_list_create"),
     path("shopping_items", ShoppingItemsList.as_view(), name="shopping_list"),
     # path("shopping_items/delete", .as_view(), name="shopping_list_delete"),
+    path("shopping_items/create/<int:pk>/<int:recipe_id>/", create_shopping_item, name="shopping_item_create"),
 ]

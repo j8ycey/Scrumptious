@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
+from django.shortcuts import redirect
 
 
 USER_MODEL = settings.AUTH_USER_MODEL
@@ -105,6 +106,6 @@ class ShoppingItem(models.Model):
 
     class Meta:
         unique_together = ('user', 'food_item')
-    
+
     def __str__(self):
         return str(self.food_item)

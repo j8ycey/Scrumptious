@@ -33,6 +33,13 @@
         <td>{{ ingredient.amount }}</td>
         <td>{{ ingredient.measure.name }}</td>
         <td>{{ ingredient.food.name }}</td>
+        <td>
+            <form method="post"
+              action="{% url 'shopping_item_create' ingredient.food.pk recipe.id %}">
+              {% csrf_token %}
+              <button> Add To Shopping List </button>
+            </form>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

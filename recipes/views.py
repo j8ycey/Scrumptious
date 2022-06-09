@@ -6,7 +6,7 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from recipes.forms import RatingForm
-from recipes.models import USER_MODEL, Recipe, ShoppingItem
+from recipes.models import USER_MODEL, Recipe, ShoppingItem, FoodItem
 
 
 def log_rating(request, recipe_id):
@@ -68,12 +68,21 @@ class ShoppingItemsList(LoginRequiredMixin, ListView):
     context_object_name = "shopping_list"
     login_url = "/login/"
 
+    def get_queryset(self):
+        return ShoppingItem.objects.filter(user=self.request.user)
 
-def ShoppingListCreate():
-    pass
-    # if request.method == "POST":
-    #     if form.is_valid()
-    #         recipe
+
+def create_shopping_item(request, pk, recipe_id):
+    """purpose is to create an entry in the database specifically a shopping item entry and redirect you elsewhere"""
+    if request.method == "POST" and pk:
+        item = ShoppingItem(
+            user=request.user,
+            food_item=FoodItem.objects.get(pk=pk)
+        )
+        item.save()
+        return redirect("recipe_detail", pk=recipe_id)
+    else:
+        return redirect("recipe_list")
 
 
 def ShoppingListDelete():
