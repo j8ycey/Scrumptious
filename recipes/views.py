@@ -4,9 +4,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from recipes.forms import RatingForm
-from recipes.models import USER_MODEL, Recipe, ShoppingItem, FoodItem
+from recipes.models import Recipe, ShoppingItem, FoodItem
 
 
 def log_rating(request, recipe_id):
@@ -52,7 +53,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
     template_name = "recipes/edit.html"
-    fields = ["name", "author", "description", "image"]
+    fields = ["name", "description", "image"]
     success_url = reverse_lazy("recipes_list")
 
 
@@ -71,7 +72,7 @@ class ShoppingItemsList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return ShoppingItem.objects.filter(user=self.request.user)
 
-
+@login_required(login_url="/login")
 def create_shopping_item(request, pk, recipe_id):
     """purpose is to create an entry in the database specifically a shopping item entry and redirect you elsewhere"""
     if request.method == "POST" and pk:
@@ -85,5 +86,8 @@ def create_shopping_item(request, pk, recipe_id):
         return redirect("recipe_list")
 
 
-def ShoppingListDelete():
-    pass
+@login_required(login_url="/login")
+def shopping_list_delete(request):
+    ShoppingItem.objects.filter(user=request.user).delete()
+    return redirect("shopping_list")
+

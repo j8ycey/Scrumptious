@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<main class="recipe-grid">
-  {% for item in shopping_list %}
+<main>
+  <h1>Your shopping list</h1>
+  <div>
+    <form method="post" action="{% url 'shopping_list_delete' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <button class="button">Delete All</button>
+    </form>
+  </div>
+  <ul>
+    {% for item in shopping_list %}
     <div class="recipe-card">
-      <h2 class="recipe-card-title">
-      </h2>
-      <a href="{% url 'shopping_list' %}">{{ item.food_item }}</a> <br>
+      <h2 class="recipe-card-title"></h2>
+      <a href="{% url 'shopping_list' %}">{{ item.food_item }}</a>
     </div>
-  {% endfor %}
+    {% endfor %}
+  </ul>
 </main>
 
 {% endblock content %}

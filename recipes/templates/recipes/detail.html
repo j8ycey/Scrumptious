@@ -37,7 +37,7 @@
             <form method="post"
               action="{% url 'shopping_item_create' ingredient.food.pk recipe.id %}">
               {% csrf_token %}
-              <button> Add To Shopping List </button>
+              <button class="button"> Add To List </button>
             </form>
         </td>
       </tr>
