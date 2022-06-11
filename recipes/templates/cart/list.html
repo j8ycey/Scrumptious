@@ -10,12 +10,16 @@
     </form>
   </div>
   <ul>
+    {% comment %} {% if shopping_list > 0 %} {% endcomment %}
     {% for item in shopping_list %}
     <div class="recipe-card">
       <h2 class="recipe-card-title"></h2>
       <a href="{% url 'shopping_list' %}">{{ item.food_item }}</a>
     </div>
     {% endfor %}
+    {% comment %} {% else %}
+
+    {% endif %} {% endcomment %}
   </ul>
 </main>
 

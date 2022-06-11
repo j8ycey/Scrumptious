@@ -1,4 +1,9 @@
-{% extends 'base.html' %} {% load markdownify %} {% block content%}
+{% extends 'base.html' %}
+{% load markdownify %}
+{% load resizer %}
+{% block content%}
+
+
 <main class="recipe-detail">
   <div>
     <a href="{% url 'recipe_edit' recipe.id %}">Edit</a>
@@ -9,10 +14,23 @@
   {% endif %}
   <h1>{{ recipe.name }}</h1>
   <h2>by: {{ recipe.author | default_if_none:"Unknown" }}</h2>
+
   <p>Created on {{ recipe.created }} | Updated on {{ recipe.updated }}</p>
+
+{% if recipe.servings %}
+  <p>
+    Serves {{ servings | default_if_none:recipe.servings }}
+  </p>
+
+
+  <form method="GET">
+    <input placeholder="number of servings" type="number" name="servings" step="1" min="1">
+    <button class="button">Resize</button>
+  </form>
+  {% endif %}
+
   <form method="post" action="{% url 'recipe_rating' recipe.id %}">
-    {% csrf_token %}
-    <div class="rating-form-grid">
+    {% csrf_token %} <div class="rating-form-grid">
       {{ rating_form.as_p }}
       <button class="button">Rate</button>
     </div>
@@ -30,15 +48,19 @@
     <tbody>
       {% for ingredient in recipe.ingredients.all %}
       <tr>
-        <td>{{ ingredient.amount }}</td>
+        <td>{{ ingredient | resize_to:servings }}</td>
         <td>{{ ingredient.measure.name }}</td>
         <td>{{ ingredient.food.name }}</td>
         <td>
+          {% if ingredient.food in food_list%}
+          <p> In your list</p>
+          {% else %}
             <form method="post"
               action="{% url 'shopping_item_create' ingredient.food.pk recipe.id %}">
               {% csrf_token %}
               <button class="button"> Add To List </button>
             </form>
+          {% endif %}
         </td>
       </tr>
       {% endfor %}
