@@ -77,6 +77,8 @@ class Step(models.Model):
     def __str__(self):
         return str(self.order) + ". " + self.directions
 
+# ----------------------------------------------------------------------------------------------------------------
+
 
 class Rating(models.Model):
     value = models.PositiveSmallIntegerField(
@@ -90,6 +92,8 @@ class Rating(models.Model):
         related_name="ratings",
         on_delete=models.CASCADE,
     )
+
+# ----------------------------------------------------------------------------------------------------------------
 
 
 class ShoppingItem(models.Model):

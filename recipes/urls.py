@@ -23,8 +23,8 @@ urlpatterns = [
 
     path("<int:recipe_id>/ratings/", log_rating, name="recipe_rating"),
 
-    path("accounts/login", auth_views.LoginView.as_view(), name="login"),
-    path("accounts/logout", auth_views.LogoutView.as_view(), name="logout"),
+    # path("accounts/login", auth_views.LoginView.as_view(), name="login"),
+    # path("accounts/logout", auth_views.LogoutView.as_view(), name="logout"),
 
     path("shopping_items", ShoppingItemsList.as_view(), name="shopping_list"),
     path("shopping_items/delete", shopping_list_delete, name="shopping_list_delete"),

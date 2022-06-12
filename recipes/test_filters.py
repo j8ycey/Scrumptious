@@ -11,7 +11,7 @@ from recipes.templatetags.resizer import resize_to
 #         try:
 #             ratio = int(target) / servings
 #             return ingredient.amount * ratio
-#         except ValueError:
+#         except ValueError
 #             pass
 #     return ingredient.amount
 
