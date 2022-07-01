@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load markdownify %}
+{% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
+{% endblock styles %}
 {% block content %}
   <main class="recipe-detail">
     <div>

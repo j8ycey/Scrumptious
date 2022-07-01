@@ -26,7 +26,6 @@ def log_rating(request, recipe_id):
 class RecipeListView(ListView):
     model = Recipe
     template_name = "recipes/list.html"
-    paginate_by = 8
 
     def get_queryset(self):
         querystring = self.request.GET.get("q")

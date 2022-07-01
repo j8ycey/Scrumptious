@@ -48,14 +48,8 @@ class Ingredient(models.Model):
         related_name="ingredients",
         on_delete=models.CASCADE,
     )
-    measure = models.ForeignKey(
-        "Measure",
-        on_delete=models.PROTECT
-    )
-    food = models.ForeignKey(
-        "FoodItem",
-        on_delete=models.PROTECT
-    )
+    measure = models.ForeignKey("Measure", on_delete=models.PROTECT)
+    food = models.ForeignKey("FoodItem", on_delete=models.PROTECT)
 
     def __str__(self):
         amount = str(self.amount)
@@ -77,6 +71,7 @@ class Step(models.Model):
     def __str__(self):
         return str(self.order) + ". " + self.directions
 
+
 # ----------------------------------------------------------------------------------------------------------------
 
 
@@ -93,24 +88,20 @@ class Rating(models.Model):
         on_delete=models.CASCADE,
     )
 
+
 # ----------------------------------------------------------------------------------------------------------------
 
 
 class ShoppingItem(models.Model):
     user = models.ForeignKey(
-        USER_MODEL,
-        related_name="shopping_items",
-        on_delete=models.CASCADE
-        )
+        USER_MODEL, related_name="shopping_items", on_delete=models.CASCADE
+    )
     food_item = models.ForeignKey(
-        "FoodItem",
-        related_name="shopping_items",
-        on_delete=models.PROTECT
-        )
+        "FoodItem", related_name="shopping_items", on_delete=models.PROTECT
+    )
 
     class Meta:
-        unique_together = ('user', 'food_item')
+        unique_together = ("user", "food_item")
 
     def __str__(self):
         return str(self.food_item)
-

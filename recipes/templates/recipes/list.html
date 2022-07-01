@@ -1,4 +1,7 @@
-{% extends 'paginate.html' %}
+{% extends 'base.html' %}
+{% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'css/app.css' %}" />
+{% endblock styles %}
 
 {% block content %}
   <main class="recipe-grid">
@@ -6,7 +9,7 @@
     <p>
       <form method="GET">
         <input type="text" name="q">
-        <button type="submit">Search</button>
+        <input type="submit" value="Search">
       </form>
     </p>
     <br>

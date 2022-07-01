@@ -1,25 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
-html, button, select, textarea, input {
-  font-family: 'Roboto';
+/* Set all elements to use the Open Sans font */
+body, input, textarea, button, select {
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
 
+
+/* Set the background color of all pages */
+html, body {
+  background-color: white;
+}
+
+/* Set the style of the navigation list */
 header nav ul {
+  background-color:white;
+  border-bottom: 1px solid #C2DFFF;
+  box-sizing: border-box;
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  justify-items: center;
+  margin-top: 0;
+  margin-bottom: 2em;
+  padding: 0 0 0 1em;
 }
 
+/* Set the spacing and layout of the nav list items */
+header nav ul li {
+  display: inline-block;
+  margin: 0 1em;
+  padding: 1em 0 1em 0;
+}
+
+/* Set the spacing and layout of the visited nav list items */
+header nav ul li:hover {
+  background-color: #C2DFFF;
+  border-color: #C2DFFF;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+
+}
+
+/* Set the style of the links in the nav */
+header nav ul li a,
+header nav ul li a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+/* Set the style of the links/visited links */
 a,
 a:visited {
-  text-decoration: none;
-  color: #208ACC;
+    text-decoration: none;
+    color:black;
 }
 
 button.button {
-  background-color: skyblue;
+  background-color: #C2DFFF;
   border: 2px solid transparent;
   border-radius: 4px;
   color: white;
@@ -29,16 +67,16 @@ button.button {
 
 button.button:hover {
   background-color: white;
-  border-color: skyblue;
-  color: skyblue;
+  border-color: #C2DFFF;
+  color: #C2DFFF;
 }
 
 button.button:active {
-  background-color: lightblue;
+  background-color: #C2DFFF;
 }
 
 input, textarea {
-  border: 1px solid skyblue;
+  border: 1px solid #C2DFFF;
   border-radius: 4px;
   padding: 1em 1.5em;
 }

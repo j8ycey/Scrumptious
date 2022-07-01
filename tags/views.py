@@ -14,7 +14,6 @@ from tags.models import Tag
 class TagListView(ListView):
     model = Tag
     template_name = "tags/list.html"
-    paginate_by = 4
 
 
 class TagDetailView(DetailView):
