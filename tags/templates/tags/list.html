@@ -12,7 +12,7 @@
         </h2>
         {% for recipe in tag.recipes.all %}
           <p>
-            <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a>
+            <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.name }}</a><br>
             <img src= "{{ recipe.image }}" height="250">
           </p>
         {% endfor %}

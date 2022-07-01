@@ -56,10 +56,14 @@ a:visited {
     color:black;
 }
 
+a:hover {
+  color: #C2DFFF;
+}
+
 button.button {
   background-color: #C2DFFF;
   border: 2px solid transparent;
-  border-radius: 4px;
+  border-radius: 25px;
   color: white;
   padding: 1em 1.5em;
   text-transform: uppercase;
@@ -102,6 +106,7 @@ textarea {
 
 .recipe-card-title {
   margin-bottom: 0;
+
 }
 
 .recipe-card-date {

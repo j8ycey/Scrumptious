@@ -9,8 +9,8 @@
 
 <main class="recipe-detail">
   <div>
-    <a href="{% url 'recipe_edit' recipe.id %}">Edit</a>
-    <a href="{% url 'recipe_delete' recipe.id %}">Delete</a>
+    <button class="button"><a href="{% url 'recipe_edit' recipe.id %}">Edit</a></button>
+    <button class="button"><a href="{% url 'recipe_delete' recipe.id %}">Delete</a></button>
   </div>
   {% if recipe.image %}
   <img src="{{ recipe.image }}" class="pull-right" height="400" />
