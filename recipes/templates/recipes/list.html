@@ -4,16 +4,17 @@
 {% endblock styles %}
 
 {% block content %}
-  <main class="recipe-grid">
+<div class="align-right">
+<p>
+  <form method="GET">
+    <input type="text" name="q">
+    <button type="submit" >Search</button>
+  </form>
+</p>
+</div>
+<br>
 
-    <p>
-      <form method="GET">
-        <input type="text" name="q">
-        <button type="submit" class="button">Search</button>
-      </form>
-    </p>
-    <br>
-
+<main class="recipe-grid" align='center'>
 
     {% for recipe in recipe_list %}
       <div class="recipe-card">

@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="{% static 'css/app.css' %}" />
 {% endblock styles %}
 {% block content %}
-  <button class="button"><a href="{% url 'meal_plan_new' %}"> Create A New Meal Plan </a></button>
+<div class="align-center">
+  <button>
+    <a href="{% url 'meal_plan_new' %}"> Create A New Meal Plan </a>
+  </button>
+</div>
   <main class="recipe-grid">
     {% for plan in meal_plan %}
     <div class="recipe-card">
@@ -11,7 +15,7 @@
         <a href="{% url 'meal_plan_detail' plan.id %}"> {{ plan.name }}</a>
         </h2>
           {% for recipe in plan.recipes.all %}
-            <p> {{ recipe.name }} </p>
+            <p"> {{ recipe.name }} </p>
           {% endfor %}
       </div>
     {% endfor %}  

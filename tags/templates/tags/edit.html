@@ -1,16 +1,12 @@
-{% extends 'base.html' %}
-{% load static %} {% block styles %}
+{% extends 'base.html' %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-{% endblock styles %}
-
-{% block content %}
-  <main class="recipe-form">
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <div class="control">
-        <button class="button">Update</button>
-      </div>
-    </form>
-  </main>
+{% endblock styles %} {% block content %}
+<main class="recipe-form">
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <div class="align-right">
+      <button>Update</button>
+    </div>
+  </form>
+</main>
 {% endblock content%}

@@ -1,28 +1,23 @@
-{% extends 'base.html' %}
-{% load static %} {% block styles %}
+{% extends 'base.html' %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'css/app.css' %}" />
-{% endblock styles %}
-{% block content %}
+{% endblock styles %} {% block content %}
 
 <main>
   <h1>Your shopping list</h1>
   <div>
     <form method="post" action="{% url 'shopping_list_delete' %}">
       {% csrf_token %} {{ form.as_p }}
-      <button class="button">Delete All</button>
+      <button>Delete All</button>
     </form>
   </div>
   <ul>
-    {% comment %} {% if shopping_list > 0 %} {% endcomment %}
-    {% for item in shopping_list %}
+    {% comment %} {% if shopping_list > 0 %} {% endcomment %} {% for item in
+    shopping_list %}
     <div class="recipe-card">
       <h2 class="recipe-card-title"></h2>
       <a href="{% url 'shopping_list' %}">{{ item.food_item }}</a>
     </div>
-    {% endfor %}
-    {% comment %} {% else %}
-
-    {% endif %} {% endcomment %}
+    {% endfor %} {% comment %} {% else %} {% endif %} {% endcomment %}
   </ul>
 </main>
 

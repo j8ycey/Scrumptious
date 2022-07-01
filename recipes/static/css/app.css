@@ -17,7 +17,7 @@ html, body {
 /* Set the style of the navigation list */
 header nav ul {
   background-color:white;
-  border-bottom: 1px solid #C2DFFF;
+  /* border-bottom: 1px solid #C2DFFF; */
   box-sizing: border-box;
   list-style: none;
   margin-top: 0;
@@ -60,22 +60,22 @@ a:hover {
   color: #C2DFFF;
 }
 
-button.button {
+button {
   background-color: #C2DFFF;
   border: 2px solid transparent;
   border-radius: 25px;
   color: white;
-  padding: 1em 1.5em;
+  padding: 10px;
   text-transform: uppercase;
 }
 
-button.button:hover {
+button:hover {
   background-color: white;
   border-color: #C2DFFF;
   color: #C2DFFF;
 }
 
-button.button:active {
+button:active {
   background-color: #C2DFFF;
 }
 
@@ -100,12 +100,14 @@ textarea {
 .recipe-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2em;
-  padding: 2em;
+  gap: 1em;
+  padding: 1em;
+  margin: auto;
 }
 
 .recipe-card-title {
   margin-bottom: 0;
+  font-size: 20px;
 
 }
 
@@ -146,8 +148,12 @@ textarea {
   margin: 1em;
 }
 
-.control {
+.align-right {
   text-align: right;
+}
+
+.align-center {
+  text-align: center;
 }
 
 .delete-form {

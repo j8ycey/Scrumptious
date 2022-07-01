@@ -6,8 +6,8 @@
 {% block content %}
   <main class="recipe-detail">
     <div>
-      <button class="button"><a href="{% url 'meal_plan_edit' meal_plan.pk %}">Edit</a></button>
-        <button class="button"><a href="{% url 'meal_plan_delete' meal_plan.pk %}">Delete</a></button>
+      <button ><a href="{% url 'meal_plan_edit' meal_plan.pk %}">Edit</a></button>
+        <button ><a href="{% url 'meal_plan_delete' meal_plan.pk %}">Delete</a></button>
     </div>
     <h2>Recipes for {{ meal_plan.owner | default_if_none:"Unknown" }}</h2>
       {% for recipe in meal_plan.recipes.all %}
